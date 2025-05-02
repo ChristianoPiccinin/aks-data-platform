@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/seu-org/data-platform
+    repoURL: https://github.com/ChristianoPiccinin/aks-data-platform
     targetRevision: main
     path: argo/base/strimzi
   destination:
