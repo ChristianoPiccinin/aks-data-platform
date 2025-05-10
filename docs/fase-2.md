@@ -75,24 +75,11 @@ Use o seu repositório Git com estrutura acima
 ✅ Passo 4: Criar um Application
 Exemplo: Aplicar o Strimzi do ambiente dev
 
-yaml
-Copy
-Edit
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kafka-dev
-  namespace: argocd
-spec:
-  destination:
-    namespace: kafka
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    repoURL: https://github.com/ChristianoPiccinin/aks-data-platform
-    targetRevision: HEAD
-    path: apps/dev/kafka
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: true
+
+criar os demais namespaces 
+kubectl create ns kafka
+kubectl create ns spark
+kubectl create ns pinot
+kubectl create ns minio
+kubectl create ns nats
+kubectl create ns monitoring
