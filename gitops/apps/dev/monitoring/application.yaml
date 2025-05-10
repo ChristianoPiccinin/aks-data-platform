@@ -4,14 +4,14 @@ metadata:
   name: monitoring-dev
   namespace: argocd
 spec:
-  destination:
-    namespace: monitoring
-    server: https://kubernetes.default.svc
   project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
   source:
-    repoURL: https://github.com/ChristianoPiccinin/aks-data-platform
-    targetRevision: HEAD
-    path: apps/dev/monitoring
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    targetRevision: 48.3.1
   syncPolicy:
     automated:
       prune: true
