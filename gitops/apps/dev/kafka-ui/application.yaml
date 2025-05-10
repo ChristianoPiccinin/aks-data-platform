@@ -18,8 +18,8 @@ spec:
           clusters:
             - name: kafka-cluster
               bootstrapServers: "kafka-cluster-kafka-bootstrap:9092"
-      service:
-        type: LoadBalancer
+        service:
+          type: LoadBalancer
   syncPolicy:
     automated:
       selfHeal: true
