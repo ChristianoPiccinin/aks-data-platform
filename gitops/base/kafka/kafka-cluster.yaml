@@ -5,8 +5,7 @@ metadata:
   namespace: kafka
 spec:
   kafka:
-    version: 3.9.0 
-    replicas: 3
+    replicas: 1
     listeners:
       - name: plain
         port: 9092
@@ -15,7 +14,7 @@ spec:
     storage:
       type: ephemeral
   zookeeper:
-    replicas: 3
+    replicas: 1
     storage:
       type: ephemeral
   entityOperator:

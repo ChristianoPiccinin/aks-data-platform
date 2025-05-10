@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nats-dev
+  namespace: argocd
+spec:
+  destination:
+    namespace: nats
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/sua-org/gitops.git
+    targetRevision: HEAD
+    path: apps/dev/nats
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
