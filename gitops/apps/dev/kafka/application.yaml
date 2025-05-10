@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/sua-org/gitops.git
+    repoURL: https://github.com/ChristianoPiccinin/aks-data-platform
     targetRevision: HEAD
     path: apps/dev/kafka
   syncPolicy:
