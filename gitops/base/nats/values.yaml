@@ -1,9 +1,0 @@
-nats:
-  replicas: 1
-
-cluster:
-  enabled: true
-  replicas: 1
-
-auth:
-  enabled: false

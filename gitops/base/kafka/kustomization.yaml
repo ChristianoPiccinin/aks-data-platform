@@ -1,3 +1,0 @@
-resources:
-  - strimzi-operator.yaml
-  - kafka-cluster.yaml

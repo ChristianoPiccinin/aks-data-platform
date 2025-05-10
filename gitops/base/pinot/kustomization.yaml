@@ -1,7 +1,0 @@
-helmCharts:
-  - name: pinot
-    repo: https://raw.githubusercontent.com/apache/pinot/master/kubernetes/helm
-    releaseName: pinot
-    namespace: pinot
-    version: 0.11.0
-    valuesFile: values.yaml
