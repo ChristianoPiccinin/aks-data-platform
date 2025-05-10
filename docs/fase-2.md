@@ -88,5 +88,5 @@ spec:
     path: apps/dev/kafka
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true

@@ -14,5 +14,5 @@ spec:
     path: apps/prod/minio
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true

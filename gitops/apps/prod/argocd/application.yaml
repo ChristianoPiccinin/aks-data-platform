@@ -14,5 +14,5 @@ spec:
     path: apps/prod/argocd
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
