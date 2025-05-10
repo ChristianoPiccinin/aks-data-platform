@@ -42,10 +42,16 @@ kubectl create namespace argocd
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 
-# Instalar o ArgoCD
 helm install argocd argo/argo-cd -n argocd \
-  --set server.service.type=LoadBalancer
+  --set server.service.type=LoadBalancer \
+  --set configs.cm."kustomize.buildOptions"="--enable-helm"
+
+  
 Aguarde alguns minutos e obtenha o IP externo do ArgoCD:
+
+
+obter a senha:
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 bash
 Copy
