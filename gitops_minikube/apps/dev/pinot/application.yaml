@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: pinot
   source:
-    repoURL: https://raw.githubusercontent.com/apache/pinot/refs/heads/master/helm/index.yaml
+    repoURL: https://raw.githubusercontent.com/apache/pinot/refs/heads/master/helm
     chart: pinot
     targetRevision: 0.11.0
 helm:
