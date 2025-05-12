@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio-dev
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: minio
+  source:
+    repoURL: https://charts.min.io/
+    chart: minio
+    targetRevision: 5.0.14
+helm:
+      values: |
+
+        mode: standalone
+        persistence:
+          enabled: false
+        service:
+          type: NodePort
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: false

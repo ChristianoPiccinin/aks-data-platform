@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafka-ui-dev
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kafka-ui
+  source:
+    repoURL: https://provectus.github.io/kafka-ui-charts
+    chart: kafka-ui
+    targetRevision: 0.7.5
+helm:
+      values: |
+
+        kafka:
+          clusters:
+            - name: kafka-cluster
+              bootstrapServers: "kafka-cluster-kafka-bootstrap:9092"
+        service:
+          type: NodePort
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: false
