@@ -24,7 +24,7 @@ helm:
             podMonitorSelectorNilUsesHelmValues: false
         crds:
           create: false
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: false
+syncPolicy:
+  automated:
+    selfHeal: true
+    prune: false

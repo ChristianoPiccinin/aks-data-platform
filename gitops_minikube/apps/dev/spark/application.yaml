@@ -17,7 +17,7 @@ helm:
 
         enableWebhook: false
         sparkJobNamespace: spark
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: false
+syncPolicy:
+  automated:
+    selfHeal: true
+    prune: false
