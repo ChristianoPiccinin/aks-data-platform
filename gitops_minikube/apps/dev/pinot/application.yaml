@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: pinot
   source:
-    repoURL: https://raw.githubusercontent.com/apache/pinot/refs/heads/master/helm
+    repoURL: https://raw.githubusercontent.com/apache/pinot/refs/heads/master/helm/index.yaml
     chart: pinot
     targetRevision: 0.11.0
 helm:
@@ -21,7 +21,7 @@ helm:
         broker:
           service:
             type: NodePort
-syncPolicy:
-  automated:
-    selfHeal: true
-    prune: false
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: false
