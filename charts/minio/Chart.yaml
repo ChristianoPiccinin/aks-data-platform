@@ -1,0 +1,4 @@
+apiVersion: v2
+name: minio
+description: Deploy MinIO object storage
+version: 0.1.0
