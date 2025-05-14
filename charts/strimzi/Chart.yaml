@@ -1,0 +1,4 @@
+apiVersion: v2
+name: strimzi
+description: Deploy Kafka cluster via Strimzi
+version: 0.1.0
