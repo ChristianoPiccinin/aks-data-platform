@@ -1,0 +1,6 @@
+executor: LocalExecutor
+webserver:
+  defaultUser:
+    enabled: true
+    username: admin
+    password: admin123

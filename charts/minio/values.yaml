@@ -1,0 +1,7 @@
+mode: standalone
+rootUser: admin
+rootPassword: admin123456
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 250m

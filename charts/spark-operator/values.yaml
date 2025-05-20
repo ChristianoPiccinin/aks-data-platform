@@ -1,0 +1,3 @@
+sparkJobNamespace: processing
+enableWebhook: true
+replicaCount: 1
