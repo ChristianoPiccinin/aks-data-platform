@@ -1,0 +1,129 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafka-ui
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://provectus.github.io/kafka-ui-charts
+    chart: kafka-ui
+    targetRevision: 0.7.1
+    helm:
+      values: |
+        yamlApplicationConfig:
+          kafka:
+            clusters:
+              - name: local
+                bootstrapServers: my-cluster-kafka-bootstrap.kafka:9092
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kafka
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.min.io/
+    chart: minio
+    targetRevision: 5.0.10
+    helm:
+      values: |
+        mode: standalone
+        rootUser: admin
+        rootPassword: admin123456
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: deepstorage
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airflow
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://airflow.apache.org
+    chart: airflow
+    targetRevision: 1.10.0
+    helm:
+      values: |
+        executor: LocalExecutor
+        webserver:
+          defaultUser:
+            enabled: true
+            username: admin
+            password: admin123
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: orchestrator
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spark-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://googlecloudplatform.github.io/spark-on-k8s-operator
+    chart: spark-operator
+    targetRevision: 1.1.27
+    helm:
+      values: |
+        sparkJobNamespace: processing
+        enableWebhook: true
+        replicaCount: 1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: processing
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    targetRevision: 56.6.2
+    helm:
+      values: |
+        grafana:
+          adminPassword: admin123
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
