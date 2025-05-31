@@ -24,7 +24,7 @@ kubectl get svc argocd-server -n gitops
 kubectl -n gitops get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 
 
-argocd login "" --username admin --password "" --insecure
+argocd login "4.153.111.71" --username admin --password "" --insecure
 argocd cluster add ""
 
 kubectl apply -f git-repo-con.yaml -n gitops
