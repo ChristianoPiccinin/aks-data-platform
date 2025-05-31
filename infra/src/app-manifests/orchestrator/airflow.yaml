@@ -13,7 +13,7 @@ spec:
       valueFiles:
         - values.yaml
   destination:
-    name: 'owshq-orion-ws-dev'
+    name: 'orion-christiano-development'
     namespace: orchestrator
     server: ''
   syncPolicy:
