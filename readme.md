@@ -10,7 +10,7 @@ terraform apply
 # Conecte-se ao AKS:
 ```console
 az account set --subscription 
-az aks get-credentials --resource-group rg-aks-dev --name aksdata-aks
+az aks get-credentials --resource-group rg-orion-christiano --name orion-christiano-development
 ```
 
 # Verifique a conexão:
